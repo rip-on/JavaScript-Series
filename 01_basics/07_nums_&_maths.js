@@ -50,7 +50,8 @@ console.log(Math.floor(Math.random()*10) + 1 );//but what if the value 0.075434,
 
 min = 10;
 max = 20;
-console.log(Math.floor(Math.random() * (max-min + 1) + min))
+console.log(Math.floor(Math.random() * (max-min + 1) + min)) //Should give value from 10 to 20;
+
 
 
 
