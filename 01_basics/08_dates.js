@@ -37,14 +37,14 @@ console.log(Math.floor(myTime/1000));
 let newDate = new Date()
 console.log(newDate);
 console.log(newDate.getFullYear());//2025
-console.log(newDate.getDay());//3 ***Starting from Monday
+console.log(newDate.getDay());//3 ***Starting from Monday = 1
 console.log(newDate.getMonth())//2 (March as starting from 0 counting January)
 console.log(newDate.getMonth()+1);//3 as it is March for not confusing with clients or interacting people.
 
 
 newDate.toLocaleString('default',{
     weekday: "long",
-    timeZone: "BD"
+    // timeZone: "AM"
 })
 
 
