@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval</title>
+</head>
+<body>
+    <h1>Chai aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+       // setInterval(function(){
+         //   console.log("Jahid", Date.now())
+      //  },1000) //print jahid & time after every second
+
+      //or
+
+      const sayDate = function(){
+        console.log("Jahid", Date.now())
+      }
+
+      //setInterval(sayDate, 1000) //does exact same before
+
+      //it can accept 3rd parameter
+
+      
+      const sayHi = function(str){
+          console.log(str, Date.now())
+        }
+    
+     const I = setInterval(sayHi, 1000, "Hi there olsen")
+
+     //stop
+     document.getElementById('stop').addEventListener('click', function(){
+        clearTimeout(I);
+        console.log(I)
+     })
+
+     //start
+     document.getElementById('start').addEventListener('click', function(){
+        setInterval(function(){
+            document.querySelector('h1').innerHTML= "Subscribe for a Newsletter;";
+            console.log('setInterval;')
+        },3000)
+     })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

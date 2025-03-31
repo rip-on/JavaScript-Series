@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TimeOut n setInterval</h1>
+    <button id="stop">STOP</button>
+    <p>setTimeOut waits the given time and then print</p><br>
+    <p>setInterval updates msg or job after given interval</p>
+    <script>
+        setTimeout(function(){
+            console.log("Hi there")
+        }, 2000)//prints after 2s
+
+        const ripon = function(){
+            console.log("Ripon");
+        }
+        setTimeout(ripon, 3000)//ripon is a handler here so no execution required
+
+        const changeText = function(){
+            document.querySelector('h1').innerHTML = "Thanks for Visiting"
+            console.log("Thanks for visiting here")
+        }
+        //setTimeout(changeText, 4000);
+        
+        //to stop setTimeOut before done
+        
+        const changeMe = setTimeout(changeText, 4000);
+        //clearTimeout(changeMe)
+
+        document.querySelector('#stop').addEventListener('click',function(){
+            clearTimeout(changeMe)
+            console.log("stopped")
+        })//after pressing the stop button it will stops the changing methods
+
+    </script>
+</body>
+</html>
