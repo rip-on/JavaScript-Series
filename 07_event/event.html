@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body style="background-color: #414141; color: aliceblue">
+    <h3>Amazing Nature Photos</h3>
+    <ul id="images">
+        <li><img src="/07_event/macow.jpg" id="macow" height="300px"><img src="" alt=""></li>
+        <li><img src="/07_event/duck.jpg" id="duck" height="300px" alt=""></li>
+        <li><img src="/07_event/dessert.jpg" id="dessert" height="300px" alt=""></li>
+        <li><img src="/07_event/hamming.jpg" id="hamming" height="300px" alt=""></li>
+        <li><img src="/07_event/owl.jpg" id="owl" height="300px" alt=""></li>
+        <li><a href="https://google.com"; style="color:aliceblue;" id="google">Google</a></li>
+    </ul>
+    <script>
+        document.getElementById('duck').onclick = function(){
+            alert('duck was clicked');
+        } //it will work but old method often less used
+        //attachEvent()
+        //jQuery - on
+        //type, timestamp, defaultPrevent
+        //clientX, clientY, screenX, screenY
+        //altKey, ctrlKey, shiftKey, keyCode
+
+
+        //Event Propagation
+        //bubbling (Goes downward to Upward)
+        document.getElementById('images').addEventListener('click', function(e){
+            //console.log("clicked the container");
+        },false)//3rd value false which is defalut
+
+        document.getElementById('hamming').addEventListener('click', function(e){
+            console.log('Bird was clicked');
+            e.stopPropagation() //Bird was clicked that means propagation will not occur it stops in 1st bubble
+        },false)
+
+        //capturing Mode (Goes Top to Bottom)
+        document.getElementById('images').addEventListener('click', function(e){
+            //console.log("clicked the container");
+        },true)//3rd value false which is defalut
+
+        document.getElementById('hamming').addEventListener('click', function(e){
+            console.log('Bird was clicked');
+        },true)
+        //preventing default behavior
+        document.getElementById('google').addEventListener('click',function(e){ //here e capturing event
+            e.preventDefault()
+            e.stopPropagation()
+            console.log('google clicked')
+        },false)
+
+        //target
+
+        document.getElementById('images').addEventListener('click', function(e){
+            console.log(e);//pointerEvent
+            console.log(e.target)//<img src="" ...>
+            console.log(e.target.parentNode);//it hold/select the parent node in this case <li>
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+            //another way
+            //removeIt.parentNode.removeChild(removeIt);//selects li to ul then remove
+        })
+
+        //tagName
+        document.getElementById('images').addEventListener('click',function(e){
+            console.log(e.target.tagName);//IMG
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                let removeIts = e.target.parentNode
+                removeIts.remove()
+            }
+        })
+    </script>
+</body>
+</html>
