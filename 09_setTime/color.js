@@ -11,20 +11,32 @@ const randomColor = function() {
    
 };
 
+let h2 = document.querySelector('h2');
+
+console.log(randomColor());
+
 let intervalId;
 const startColorChanging = function(){
     if(!intervalId){
-        intervalId = setInterval(changBgColor, 1000);
+        intervalId = setInterval( () =>{
+            document.body.style.backgroundColor = randomColor();
+        }, 1000);      
     }
-    function changBgColor(){
-        document.body.style.backgroundColor = randomColor();
-    }
-};
-
+    
+}
 const stopChangingColor = function(){
-    clearInterval(intervalId)
+    clearInterval(intervalId);
     intervalId = null;
 };
+// const starting = function(){
+   
+// };
+// const stopping = function(){
+   
+// };
 
 document.querySelector('#start').addEventListener('click', startColorChanging);
 document.querySelector('#stop').addEventListener('click',stopChangingColor);
+// document.querySelector('#start').addEventListener('click', starting);
+// document.querySelector('#stop').addEventListener('click',stopping);
+
