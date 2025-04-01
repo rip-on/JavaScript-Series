@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request</title>
+</head>
+<body style="background-color: #1c1c1c; color: #fff">
+    <p>
+        0	UNSENT	Client has been created. open() not called yet. <br>
+        1	OPENED	open() has been called. <br>
+        2	HEADERS_RECEIVED	send() has been called, and headers and status are available. <br>
+        3	LOADING	Downloading; responseText holds partial data. <br>
+        4	DONE	The operation is complete. <br>
+    </p>
+    <h3>Asynchronous JavaScript and XML (Ajax) refer to a group of technologies that are used to develop web applications</h3>
+    <div id="pic">
+        <img src="" alt="">
+        <h3></h3>
+    </div>
+    <script>
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestUrl);
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState)
+            if(xhr.readyState === 4){
+                //const data = this.responseText
+                //console.log(data)
+                const data = JSON.parse(this.responseText)
+                //console.log(typeof data)//mostly the respone come from URL is String.
+                console.log(typeof data)//convert String to Objects
+                console.log(data)
+                console.log(data.avatar_url)
+                console.log(data.followers);
+
+            }
+        }
+        xhr.send()//2 3 4
+    </script>
+</body>
+</html>
