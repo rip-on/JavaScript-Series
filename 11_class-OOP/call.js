@@ -5,10 +5,12 @@ function SetUserName(username){
 }
 
 function createUser(username, email, password){
-    SetUserName.call(this, username)
+    SetUserName.call(this,   username)
     this.email = email
     this.password = password
 }
+
+//.call hold the references
 
 const tea = new createUser("Chai", "chai@fb.com", "123")
 console.log(tea);
