@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: #313131;">
+    
+</body>
+<script>
+    function init(){
+        let name = "FireFox"
+        function displayName(){
+            console.log(name)
+        }
+        displayName()
+    }
+    init() //FireFox
+
+    function outer(){
+        let username = "Jahid"
+        console.log("Outer", secret) //not accessable
+        function inner(){
+            let secret = "my123"
+            console.log("Inner", username)
+        }
+        function innerTwo(){
+            console.log("InnerTwo", username)
+            console.log(secret) //not available (one brother can't access another brother's info) but parent info can access
+        }
+        inner()
+        innerTwo()
+    }
+    outer()
+    console.log("Too Outer", username)// Variable defined inside a function is not avaiable outside the function.
+    //Function inside a function can access the variable or materials from the outside function.
+
+
+
+    function makeFunc(){
+        const name = "Mozilla"
+        function displayName(){
+            console.log(name)
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+</script>
+</html>
